@@ -2,11 +2,12 @@ import csv
 from pprint import pp
 from datetime import datetime, date
 
-output = []
+# start with an empty dictionary
+output = {}
 
 
-def current_employee(data):
-    """Identifies all current employees"""
+def is_current_employee(data):
+    """Identifies all current employees."""
     # if no end date, current employee, return True
     if row["endsOn"] == "":
         return True
@@ -21,7 +22,8 @@ def current_employee(data):
 with open("./data/raw/data.csv") as csvfile:
     data = csv.DictReader(csvfile, delimiter=",")
     for row in data:
-        if current_employee(row):
-            output.append(row)
+        if is_current_employee(row):
+            output[row["employeeID"]] = row
+
 
 pp(output)
