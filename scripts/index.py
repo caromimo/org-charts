@@ -44,4 +44,3 @@ with open("./data/raw/data.csv") as csvfile:
                     output[row["employeeID"]] = row
 
 pp(output)
-pp(output.get("98754"))
