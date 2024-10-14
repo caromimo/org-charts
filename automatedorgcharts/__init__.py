@@ -1,6 +1,5 @@
-from datetime import datetime
+from .is_current_employee import is_current_employee
+from .to_date import to_date
 
 
-def to_date(date_string):
-    """Change data type to date"""
-    return datetime.strptime(date_string, "%Y-%m-%d").date()
+__all__ = ["is_current_employee", "to_date"]
