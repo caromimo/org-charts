@@ -15,4 +15,4 @@ distribution = false
 [tool.pdm.scripts]
 diagram = "python diagram.py"
 employees = "python index.py"
-test = "pytest"
+test = "pytest -s"
