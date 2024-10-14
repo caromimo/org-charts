@@ -1,6 +1,7 @@
 import csv
 from pprint import pp
 from datetime import datetime, date
+from automatedorgcharts import to_date
 
 # start with an empty dictionary
 output = {}
@@ -17,11 +18,6 @@ def is_current_employee(row):
         return True
     else:
         return False
-
-
-def to_date(date_string):
-    """Change data type to date"""
-    return datetime.strptime(date_string, "%Y-%m-%d").date()
 
 
 with open("./data/raw/data.csv") as csvfile:
