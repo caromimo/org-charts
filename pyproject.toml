@@ -3,16 +3,25 @@ name = "automatedOrgCharts"
 version = "0.1.0"
 description = "Default template for PDM package"
 authors = [{ name = "Caroline Mimeault", email = "carolinemimeault@gmail.com" }]
-dependencies = ["dagre-py>=0.1.7", "setuptools>=75.1.0", "pytest>=8.3.3"]
+dependencies = [
+    "dagre-py>=0.1.7",
+    "setuptools>=75.1.0",
+    "pytest>=8.3.3",
+    "pytest-cov>=5.0.0",
+]
 requires-python = "==3.11.*"
 readme = "README.md"
 license = { text = "MIT" }
 
-
 [tool.pdm]
 distribution = false
+
 
 [tool.pdm.scripts]
 diagram = "python diagram.py"
 employees = "python main.py"
-test = "pytest -s"
+test = "pytest -s --cov=."
+
+
+[tool.coverage.run]
+omit = [".venv/*"]
