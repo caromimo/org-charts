@@ -24,4 +24,10 @@ test = "pytest -s --cov=."
 
 
 [tool.coverage.run]
-omit = [".venv/*"]
+omit = [
+    ".venv/*",
+    "conftest.py",
+    "diagram.py",
+    "tests/__init__.py",
+    "automatedorgcharts/__init__.py",
+]
