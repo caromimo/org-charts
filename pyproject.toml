@@ -20,7 +20,7 @@ distribution = false
 [tool.pdm.scripts]
 diagram = "python diagram.py"
 employees = "python main.py"
-test = "pytest -s --cov=."
+test = "pytest -s --cov=. tests/"
 
 
 [tool.coverage.run]
