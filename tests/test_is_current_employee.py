@@ -67,8 +67,8 @@ def test_is_current_employee_with_deployedOUT_employee():
     assert is_current_employee(deployed_employee) is False
 
 
-def test_is_current_employee_with_secondedOUT_employee():
-    secondedOUT_employee = {
+def test_is_current_employee_with_secondmentOUT_employee():
+    secondmentOUT_employee = {
         "directorate": "MDCCD",
         "division": "MDCP",
         "unit": "NA",
@@ -85,4 +85,4 @@ def test_is_current_employee_with_secondedOUT_employee():
         "startsOn": "2023-03-01",
         "endsOn": "2025-05-02",
     }
-    assert is_current_employee(secondedOUT_employee) is False
+    assert is_current_employee(secondmentOUT_employee) is False
