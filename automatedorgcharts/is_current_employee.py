@@ -1,4 +1,5 @@
-from datetime import datetime, date
+from datetime import date
+from .to_date import to_date
 
 # from automatedorgcharts import to_date
 
@@ -15,7 +16,7 @@ def is_current_employee(row):
     if row["endsOn"] == "":
         return True
     # if end date in the future, current employee, return True
-    end_date = datetime.strptime(row["endsOn"], "%Y-%m-%d").date()
+    end_date = to_date(row["endsOn"])
     if end_date > date.today():
         return True
     else:
