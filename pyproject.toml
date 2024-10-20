@@ -30,4 +30,5 @@ omit = [
     "diagram.py",
     "tests/__init__.py",
     "automatedorgcharts/__init__.py",
+    "tests/*",
 ]
