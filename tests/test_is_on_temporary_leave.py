@@ -1,7 +1,7 @@
-from automatedorgcharts import has_temporarily_left
+from automatedorgcharts import is_on_temporary_leave
 
 
-def test_has_temporarily_left_with_employee_on_secondmentOUT():
+def test_is_on_temporary_leave_with_employee_on_secondmentOUT():
     employee_on_secondmentOUT = {
         "directorate": "MDCCD",
         "division": "MDCP",
@@ -19,10 +19,10 @@ def test_has_temporarily_left_with_employee_on_secondmentOUT():
         "startsOn": "2023-03-01",
         "endsOn": "2025-05-02",
     }
-    assert has_temporarily_left(employee_on_secondmentOUT) is True
+    assert is_on_temporary_leave(employee_on_secondmentOUT) is True
 
 
-def test_has_temporarily_left_with_employee_on_secondmentOUT_who_returned():
+def test_is_on_temporary_leave_with_employee_on_secondmentOUT_who_returned():
     employee_on_secondmentOUT_who_returned = {
         "directorate": "MDCCD",
         "division": "MDCP",
@@ -40,10 +40,10 @@ def test_has_temporarily_left_with_employee_on_secondmentOUT_who_returned():
         "startsOn": "2021-11-01",
         "endsOn": "2022-05-12",
     }
-    assert has_temporarily_left(employee_on_secondmentOUT_who_returned) is False
+    assert is_on_temporary_leave(employee_on_secondmentOUT_who_returned) is False
 
 
-def test_has_temporarily_left_with_current_employee():
+def test_is_on_temporary_leave_with_current_employee():
     current_employee = {
         "directorate": "MDCCD",
         "division": "PPAD",
@@ -61,4 +61,4 @@ def test_has_temporarily_left_with_current_employee():
         "startsOn": "2023-07-12",
         "endsOn": "",
     }
-    assert has_temporarily_left(current_employee) is False
+    assert is_on_temporary_leave(current_employee) is False

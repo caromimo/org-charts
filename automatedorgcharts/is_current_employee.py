@@ -1,5 +1,5 @@
 from .has_permanently_left import has_permanently_left
-from .has_temporarily_left import has_temporarily_left
+from .is_on_temporary_leave import is_on_temporary_leave
 
 
 # IDENTIFY CURRENT EMPLOYEES
@@ -7,7 +7,7 @@ from .has_temporarily_left import has_temporarily_left
 def is_current_employee(row):
     if has_permanently_left(row):
         return False
-    if has_temporarily_left(row):
+    if is_on_temporary_leave(row):
         return False
     else:
         return True

@@ -4,7 +4,7 @@ from .to_date import to_date
 
 # RESOLVE TEMPORARY LEAVES
 # identify assignmentOUT, secondmentOUT, maternity leave, paternity leave, parental leave, leave without pay (LWOP), sick LWOP (SLWOP)
-def has_temporarily_left(row):
+def is_on_temporary_leave(row):
     if (
         row["staffingActionType"] == "assignmentOUT"
         or row["staffingActionType"] == "secondmentOUT"
