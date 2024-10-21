@@ -1,5 +1,5 @@
 from datetime import date
-from .to_date import to_date
+from .convert_to_date import convert_to_date
 
 
 # RESOLVE TEMPORARY LEAVES
@@ -15,7 +15,7 @@ def is_on_temporary_leave(row):
         or row["staffingActionType"] == "SLWOP"
     ):
         # if end date is in the future, employee is on temporary leave, return True
-        end_date = to_date(row["endsOn"])
+        end_date = convert_to_date(row["endsOn"])
         if end_date >= date.today():
             return True
         else:
