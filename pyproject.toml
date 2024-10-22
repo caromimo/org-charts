@@ -27,7 +27,7 @@ test = "pytest -s --cov=. tests/"
 omit = [
     ".venv/*",
     "conftest.py",
-    "diagram.py",
+    "dagre-diagram.py",
     "tests/__init__.py",
     "automatedorgcharts/__init__.py",
     "tests/*",
