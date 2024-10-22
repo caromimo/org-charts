@@ -1,5 +1,7 @@
 # RESOLVE PERMANENT LEAVES
 # identify deploymentOUT, retirement, and resignation
+
+
 def has_permanently_left(row):
     if (
         row["staffingActionType"] == "deploymentOUT"
