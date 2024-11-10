@@ -8,6 +8,8 @@ dependencies = [
     "setuptools>=75.1.0",
     "pytest>=8.3.3",
     "pytest-cov>=5.0.0",
+    "graphviz>=0.20.3",
+    "anytree>=2.12.1",
 ]
 requires-python = "==3.13.*"
 readme = "README.md"
