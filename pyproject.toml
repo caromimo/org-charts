@@ -21,7 +21,7 @@ distribution = false
 
 [tool.pdm.scripts]
 diagram = "python diagram.py"
-employees = "python main.py"
+main = "python main.py"
 test = "pytest -s --cov=. tests/"
 push-hub = "git push origin main"
 push-ado = "git push ado main"
