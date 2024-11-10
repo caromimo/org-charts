@@ -75,9 +75,24 @@ employee4 = {
 
 def test_good_Organization():
     org = Organization()
-    org.add_staffing_action(employee1)
-    org.add_staffing_action(employee2)
-    org.add_staffing_action(employee3)
-    org.add_staffing_action(employee4)
-    org.graph.view()
-    assert org.graph.source == "popcorn"
+    org.add_employee(employee1)
+    # org.add_employee(employee2)
+    assert org.employees == {
+        "53463": {
+            "directorate": "MDCCD",
+            "division": "PPAD",
+            "unit": "IMAP",
+            "positionType": "Manager",
+            "positionTitle": "Manager",
+            "positionClassificationAndLevel": "EC-07",
+            "positionNumber": "32",
+            "reportsToPositionNumber": "29",
+            "lastName": "Muller",
+            "firstName": "Cassandra",
+            "employeeID": "53463",
+            "employeeTenure": "indeterminate",
+            "staffingActionType": "appointment",
+            "startsOn": "2023-07-12",
+            "endsOn": "",
+        }
+    }
