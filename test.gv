@@ -1,0 +1,11 @@
+digraph Orthogonal {
+	graph [label=TEST splines=ortho]
+	node [shape=box]
+	a -> b
+	a -> c
+	b -> d
+	b -> e
+	c -> f
+	c -> g
+	c -> k
+}
