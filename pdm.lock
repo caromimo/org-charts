@@ -5,7 +5,21 @@
 groups = ["default"]
 strategy = ["cross_platform", "inherit_metadata"]
 lock_version = "4.4.1"
-content_hash = "sha256:877c05fa84d97b8601eafb8c6021f61d80a07a7b5eb3a6366363c60db2d275c1"
+content_hash = "sha256:62acf91fbd18fef1e20dc59b5cf619d12414a946e8e7bcf163d6e004e21b223e"
+
+[[package]]
+name = "anytree"
+version = "2.12.1"
+requires_python = ">=3.7.2,<4"
+summary = "Powerful and Lightweight Python Tree Data Structure with various plugins"
+groups = ["default"]
+dependencies = [
+    "six",
+]
+files = [
+    {file = "anytree-2.12.1-py3-none-any.whl", hash = "sha256:5ea9e61caf96db1e5b3d0a914378d2cd83c269dfce1fb8242ce96589fa3382f0"},
+    {file = "anytree-2.12.1.tar.gz", hash = "sha256:244def434ccf31b668ed282954e5d315b4e066c4940b94aff4a7962d85947830"},
+]
 
 [[package]]
 name = "colorama"
@@ -73,6 +87,17 @@ summary = "Thin python wrapper around dagre-d3"
 groups = ["default"]
 files = [
     {file = "dagre_py-0.1.7-py3-none-any.whl", hash = "sha256:827eaf932e695f5504cbfa27e8ae35893d83918ced1a485660b78095daedb9f2"},
+]
+
+[[package]]
+name = "graphviz"
+version = "0.20.3"
+requires_python = ">=3.8"
+summary = "Simple Python interface for Graphviz"
+groups = ["default"]
+files = [
+    {file = "graphviz-0.20.3-py3-none-any.whl", hash = "sha256:81f848f2904515d8cd359cc611faba817598d2feaac4027b266aa3eda7b3dde5"},
+    {file = "graphviz-0.20.3.zip", hash = "sha256:09d6bc81e6a9fa392e7ba52135a9d49f1ed62526f96499325930e87ca1b5925d"},
 ]
 
 [[package]]
@@ -149,4 +174,15 @@ groups = ["default"]
 files = [
     {file = "setuptools-75.1.0-py3-none-any.whl", hash = "sha256:35ab7fd3bcd95e6b7fd704e4a1539513edad446c097797f2985e0e4b960772f2"},
     {file = "setuptools-75.1.0.tar.gz", hash = "sha256:d59a21b17a275fb872a9c3dae73963160ae079f1049ed956880cd7c09b120538"},
+]
+
+[[package]]
+name = "six"
+version = "1.16.0"
+requires_python = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
+summary = "Python 2 and 3 compatibility utilities"
+groups = ["default"]
+files = [
+    {file = "six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
+    {file = "six-1.16.0.tar.gz", hash = "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"},
 ]
