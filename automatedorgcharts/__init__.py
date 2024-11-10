@@ -4,6 +4,7 @@ from .is_current_employee import is_current_employee
 from .is_in_determinate_position import is_in_determinate_position
 from .is_in_indeterminate_position import is_in_indeterminate_position
 from .is_on_temporary_leave import is_on_temporary_leave
+from .Organization import Organization
 
 
 __all__ = [
@@ -13,4 +14,5 @@ __all__ = [
     "is_in_determinate_position",
     "is_in_indeterminate_position",
     "is_on_temporary_leave",
+    "Organization",
 ]
