@@ -8,5 +8,4 @@ class Organization:
         self.employees = {}
 
     def add_employee(self, row):
-        if is_current_employee(row):
-            self.employees[row["employeeID"]] = row
+        self.employees[row["employeeID"]] = row
