@@ -4,9 +4,9 @@
 
 def has_permanently_left(row):
     if (
-        row["staffingActionType"] == "deploymentOUT"
-        or row["staffingActionType"] == "retirement"
-        or row["staffingActionType"] == "resignation"
+        row["staffingAction"] == "deploymentOUT"
+        or row["staffingAction"] == "retirement"
+        or row["staffingAction"] == "resignation"
     ):
         return True
     else:
