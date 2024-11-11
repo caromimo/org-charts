@@ -34,9 +34,5 @@ class Organization:
                 if action["details"]["endDate"] > date.today():
                     del self.employees[action["details"]["employeePeopleSoftID"]]
 
-            if (
-                action["type"] == "deploymentOUT"
-                or action["type"] == "retirement"
-                or action["type"] == "resignation"
-            ):
+            if action["type"] in ["deploymentOUT", "retirement", "resignation"]:
                 del self.employees[action["details"]["employeePeopleSoftID"]]
