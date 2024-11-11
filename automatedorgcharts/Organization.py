@@ -25,7 +25,7 @@ class Organization:
 
         if action["action"] == "staffing":
 
-            if action["type"] == "appointment" or action["type"] == "deploymentIN":
+            if action["type"] in ["appointment", "deploymentIN"]:
                 self.employees[action["details"]["employeePeopleSoftID"]] = action[
                     "details"
                 ]
