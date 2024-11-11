@@ -23,5 +23,15 @@ class Organization:
                 del self.positions[action["details"]["positionNumber"]]
 
         if action["action"] == "staffing":
-            # if type is appointment... (TODO other instances of staffing)
-            self.employees[action["details"]["peopleSoftID"]] = action["details"]
+
+            if action["type"] == "appointment" or action["type"] == "deploymentIN":
+                self.employees[action["details"]["employeePeopleSoftID"]] = action[
+                    "details"
+                ]
+
+            if (
+                action["type"] == "deploymentOUT"
+                or action["type"] == "retirement"
+                or action["type"] == "resignation"
+            ):
+                del self.employees[action["details"]["employeePeopleSoftID"]]
