@@ -10,6 +10,7 @@ dependencies = [
     "pytest-cov>=5.0.0",
     "graphviz>=0.20.3",
     "anytree>=2.12.1",
+    "pyYAML>=6.0.2",
 ]
 requires-python = "==3.13.*"
 readme = "README.md"
