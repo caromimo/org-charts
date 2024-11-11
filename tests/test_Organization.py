@@ -1,98 +1,34 @@
 from automatedorgcharts import Organization
-
-employee1 = {
-    "directorate": "MDCCD",
-    "division": "PPAD",
-    "unit": "IMAP",
-    "positionType": "Manager",
-    "positionTitle": "Manager",
-    "positionClassificationAndLevel": "EC-07",
-    "positionNumber": "32",
-    "reportsToPositionNumber": "29",
-    "lastName": "Muller",
-    "firstName": "Cassandra",
-    "employeeID": "53463",
-    "employeeTenure": "indeterminate",
-    "staffingActionType": "appointment",
-    "startsOn": "2023-07-12",
-    "endsOn": "",
-}
-
-employee2 = {
-    "directorate": "MDCCD",
-    "division": "PPAD",
-    "unit": "IMAP",
-    "positionType": "Employee",
-    "positionTitle": "Admin Assit",
-    "positionClassificationAndLevel": "AS-04",
-    "positionNumber": "87",
-    "reportsToPositionNumber": "32",
-    "lastName": "Fortin",
-    "firstName": "Jean",
-    "employeeID": "99876",
-    "employeeTenure": "indeterminate",
-    "staffingActionType": "acting",
-    "startsOn": "2023-07-04",
-    "endsOn": "2024-11-03",
-}
-
-employee3 = {
-    "directorate": "MDCCD",
-    "division": "MDCP",
-    "unit": "IMAP",
-    "positionType": "Employee",
-    "positionTitle": "Analyst",
-    "positionClassificationAndLevel": "EC-05",
-    "positionNumber": "25",
-    "reportsToPositionNumber": "32",
-    "lastName": "Stonehead",
-    "firstName": "Nadira",
-    "employeeID": "11353",
-    "employeeTenure": "indeterminate",
-    "staffingActionType": "assignmentIN",
-    "startsOn": "2023-03-04",
-    "endsOn": "2024-02-27",
-}
-
-employee4 = {
-    "directorate": "MDCCD",
-    "division": "",
-    "unit": "",
-    "positionType": "DG",
-    "positionTitle": "Executive",
-    "positionClassificationAndLevel": "EX-02",
-    "positionNumber": "29",
-    "reportsToPositionNumber": "",
-    "lastName": "Langelin",
-    "firstName": "Cindy",
-    "employeeID": "12343",
-    "employeeTenure": "indeterminate",
-    "staffingActionType": "appointment",
-    "startsOn": "2023-02-12",
-    "endsOn": "",
-}
+from automatedorgcharts import convert_to_date
 
 
-def test_good_Organization():
-    org = Organization()
-    org.add_employee(employee1)
-    # org.add_employee(employee2)
-    assert org.employees == {
-        "53463": {
-            "directorate": "MDCCD",
-            "division": "PPAD",
-            "unit": "IMAP",
-            "positionType": "Manager",
-            "positionTitle": "Manager",
-            "positionClassificationAndLevel": "EC-07",
-            "positionNumber": "32",
-            "reportsToPositionNumber": "29",
-            "lastName": "Muller",
-            "firstName": "Cassandra",
-            "employeeID": "53463",
-            "employeeTenure": "indeterminate",
-            "staffingActionType": "appointment",
-            "startsOn": "2023-07-12",
-            "endsOn": "",
-        }
+def test_employee_on_parental_leave_is_not_included():
+    appointment = {
+        "action": "staffing",
+        "type": "appointment",
+        "details": {
+            "employeePeopleSoftID": 989898,
+            "positionNumber": 7373,
+            "firstName": "Ashley",
+            "lastName": "Samson",
+            "language": "English",
+            "security": "Reliability",
+            "tenure": "indeterminate",
+            "startDate": convert_to_date("2022-01-01"),
+        },
     }
+
+    parental_leave = {
+        "action": "staffing",
+        "type": "parentalLeave",
+        "details": {
+            "employeePeopleSoftID": 989898,
+            "startDate": convert_to_date("2024-01-01"),
+            "endDate": convert_to_date("2025-01-01"),
+        },
+    }
+
+    org = Organization()
+    org.process_action(appointment)
+    org.process_action(parental_leave)
+    assert org.employees == {}
