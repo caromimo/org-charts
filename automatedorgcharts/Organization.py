@@ -1,4 +1,5 @@
 # import graphviz
+from datetime import date
 
 
 class Organization:
@@ -28,6 +29,10 @@ class Organization:
                 self.employees[action["details"]["employeePeopleSoftID"]] = action[
                     "details"
                 ]
+
+            if action["type"] == "parentalLeave":
+                if action["details"]["endDate"] > date.today():
+                    del self.employees[action["details"]["employeePeopleSoftID"]]
 
             if (
                 action["type"] == "deploymentOUT"
