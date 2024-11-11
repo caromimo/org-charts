@@ -1,6 +1,4 @@
-# resources: https://graphviz.readthedocs.io/en/stagoble/examples.html#hello-py
-import graphviz
-from automatedorgcharts import is_current_employee
+# import graphviz
 
 
 class Organization:
@@ -8,8 +6,10 @@ class Organization:
         self.employees = {}
         self.positions = {}
 
-    def add_employee(self, row):
-        self.employees[row["employeeID"]] = row
-
-    def add_position(self, row):
-        self.positions[row["positionNumber"]] = row
+    def process_action(self, action):
+        if action["action"] == "classification":
+            # if type is create... (TODO other instances of classification)
+            self.positions[action["details"]["positionNumber"]] = action["details"]
+        if action["action"] == "staffing":
+            # if type is appointment... (TODO other instances of staffing)
+            self.employees[action["details"]["peopleSoftID"]] = action["details"]

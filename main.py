@@ -1,18 +1,14 @@
-import csv
+# import csv
+import yaml
 from pprint import pp
 from automatedorgcharts import Organization
 
 mdccd = Organization()
 
-with open("./data/processed/people.csv") as csvfile:
-    people = csv.DictReader(csvfile, delimiter=",")
-    for row in people:
-        mdccd.add_employee(row)
+with open("data/raw/data.yaml", "r") as file:
+    actions = yaml.safe_load_all(file)
+    for action in actions:
+        mdccd.process_action(action)
 
-with open("./data/processed/positions.csv") as csvfile:
-    positions = csv.DictReader(csvfile, delimiter=",")
-    for row in positions:
-        mdccd.add_position(row)
-
-pp(mdccd.employees)
 pp(mdccd.positions)
+pp(mdccd.employees)
