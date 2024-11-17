@@ -1,5 +1,6 @@
 # import graphviz
 from datetime import date
+from pprint import pp
 
 
 class Organization:
@@ -25,10 +26,19 @@ class Organization:
 
         if action["action"] == "staffing":
 
-            if action["type"] in ["appointment", "deploymentIN"]:
+            if action["type"] in [
+                "appointmentIN",
+                "deploymentIN",
+                "studentHiringOffer",
+            ]:
                 self.employees[action["details"]["employeePeopleSoftID"]] = action[
                     "details"
                 ]
+                # this can be cleaned later - adding the incumbent to the position
+                self.positions[action["details"]["positionNumber"]] = {
+                    **self.positions[action["details"]["positionNumber"]],
+                    **{"incumbent": action["details"]["employeePeopleSoftID"]},
+                }
 
             if action["type"] == "parentalLeave":
                 if action["details"]["endDate"] > date.today():

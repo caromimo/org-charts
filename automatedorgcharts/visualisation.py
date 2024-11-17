@@ -1,32 +1,344 @@
 import graphviz
+import datetime
+from pprint import pp
+
+positions = {
+    1111: {
+        "positionNumber": 1111,
+        "title": "Director General",
+        "classification": "EX-02",
+        "language": "CBC",
+        "security": "Secret",
+        "location": "Ottawa",
+        "reportsTo": None,
+        "effectiveDate": datetime.date(2018, 12, 1),
+        "incumbent": 111111,
+    },
+    7777: {
+        "positionNumber": 7777,
+        "title": "Admin Assistant",
+        "classification": "AS-01",
+        "language": "English",
+        "security": "Reliability",
+        "location": "Ottawa",
+        "reportsTo": 1111,
+        "effectiveDate": datetime.date(2020, 12, 1),
+    },
+    2111: {
+        "positionNumber": 2111,
+        "title": "Director",
+        "classification": "EX-01",
+        "language": "CBC",
+        "security": "Secret",
+        "location": "Ottawa",
+        "reportsTo": 1111,
+        "effectiveDate": datetime.date(2018, 12, 1),
+        "incumbent": 333333,
+    },
+    2222: {
+        "positionNumber": 2222,
+        "title": "Director",
+        "classification": "EX-01",
+        "language": "CBC",
+        "security": "Secret",
+        "location": "Ottawa",
+        "reportsTo": 1111,
+        "effectiveDate": datetime.date(2018, 12, 1),
+        "incumbent": 222222,
+    },
+    3111: {
+        "positionNumber": 3111,
+        "title": "Manager",
+        "classification": "EC-07",
+        "language": "CBC",
+        "security": "Secret",
+        "location": "Ottawa",
+        "reportsTo": 1111,
+        "effectiveDate": datetime.date(2023, 12, 31),
+        "incumbent": 878888,
+    },
+    3222: {
+        "positionNumber": 3222,
+        "title": "Manager",
+        "classification": "EC-07",
+        "language": "CBC",
+        "security": "Secret",
+        "location": "Ottawa",
+        "reportsTo": 1111,
+        "effectiveDate": datetime.date(2018, 12, 1),
+        "incumbent": 770023,
+    },
+    3201: {
+        "positionNumber": 3201,
+        "title": "Senior Admin Assistant",
+        "classification": "AS-04",
+        "language": "BBB",
+        "security": "Reliability",
+        "location": "Ottawa",
+        "reportsTo": 3222,
+        "effectiveDate": datetime.date(2023, 12, 31),
+        "incumbent": 443344,
+    },
+    3202: {
+        "positionNumber": 3202,
+        "title": "Admin Assistant",
+        "classification": "AS-02",
+        "language": "BBB",
+        "security": "Reliability",
+        "location": "Ottawa",
+        "reportsTo": 3222,
+        "effectiveDate": datetime.date(2021, 12, 1),
+        "incumbent": 555666,
+    },
+    3203: {
+        "positionNumber": 3203,
+        "title": "Senior Data Analyst",
+        "classification": "EC-06",
+        "language": "English",
+        "security": "Reliability",
+        "location": "Ottawa",
+        "reportsTo": 3222,
+        "effectiveDate": datetime.date(2021, 12, 1),
+        "incumbent": 987654,
+    },
+    3204: {
+        "positionNumber": 3204,
+        "title": "Data Analyst",
+        "classification": "EC-05",
+        "language": "English",
+        "security": "Reliability",
+        "location": "Ottawa",
+        "reportsTo": 3222,
+        "effectiveDate": datetime.date(2021, 12, 1),
+        "incumbent": 123456,
+    },
+    3205: {
+        "positionNumber": 3205,
+        "title": "Data Analyst",
+        "classification": "EC-05",
+        "language": "English",
+        "security": "Reliability",
+        "location": "Ottawa",
+        "reportsTo": 3222,
+        "effectiveDate": datetime.date(2021, 12, 1),
+        "incumbent": 234567,
+    },
+    3206: {
+        "positionNumber": 3206,
+        "title": "Planning and Reporting Analyst",
+        "classification": "EC-05",
+        "language": "English",
+        "security": "Reliability",
+        "location": "Ottawa",
+        "reportsTo": 3222,
+        "effectiveDate": datetime.date(2021, 12, 1),
+        "incumbent": 545454,
+    },
+    3207: {
+        "positionNumber": 3207,
+        "title": "Policy Analyst",
+        "classification": "EC-05",
+        "language": "English",
+        "security": "Reliability",
+        "location": "Ottawa",
+        "reportsTo": 3222,
+        "effectiveDate": datetime.date(2020, 12, 1),
+        "incumbent": 323232,
+    },
+    3208: {
+        "positionNumber": 3208,
+        "title": "Junior Data Analyst",
+        "classification": "EC-02",
+        "language": "English",
+        "security": "Reliability",
+        "location": "Ottawa",
+        "reportsTo": 3222,
+        "effectiveDate": datetime.date(2021, 12, 1),
+        "incumbent": 989898,
+    },
+    9999: {
+        "positionNumber": 9999,
+        "title": "Student",
+        "classification": "EC-02",
+        "language": "English",
+        "security": "Reliability",
+        "location": "Ottawa",
+        "reportsTo": 3222,
+        "effectiveDate": datetime.date(2021, 12, 1),
+        "incumbent": 432423,
+    },
+    3101: {
+        "positionNumber": 3101,
+        "title": "Data Analyst",
+        "classification": "EC-04",
+        "language": "English",
+        "security": "Reliability",
+        "location": "Ottawa",
+        "reportsTo": 3111,
+        "effectiveDate": datetime.date(2020, 12, 1),
+    },
+}
+
+
+employees = {
+    222222: {
+        "employeePeopleSoftID": 222222,
+        "positionNumber": 2222,
+        "firstName": "Alex",
+        "lastName": "Samsom",
+        "language": "CBC",
+        "security": "Secret",
+        "tenure": "Indeterminate",
+        "startDate": datetime.date(2020, 1, 1),
+    },
+    111111: {
+        "employeePeopleSoftID": 111111,
+        "positionNumber": 1111,
+        "firstName": "Christine",
+        "lastName": "Smith",
+        "language": "CBC",
+        "security": "secret",
+        "tenure": "indeterminate",
+        "startDate": datetime.date(2022, 1, 1),
+    },
+    770023: {
+        "employeePeopleSoftID": 770023,
+        "positionNumber": 3222,
+        "firstName": "Caroline",
+        "lastName": "Miller",
+        "language": "EEE",
+        "security": "secret",
+        "tenure": "indeterminate",
+        "startDate": datetime.date(2021, 1, 1),
+    },
+    555666: {
+        "employeePeopleSoftID": 555666,
+        "positionNumber": 3202,
+        "firstName": "Diane",
+        "lastName": "Danty",
+        "language": "CBC",
+        "security": "Reliability",
+        "tenure": "Indeterminate",
+        "startDate": datetime.date(2022, 1, 1),
+    },
+    443344: {
+        "employeePeopleSoftID": 443344,
+        "positionNumber": 3201,
+        "firstName": "Jason",
+        "lastName": "Momoa",
+        "language": "BBB",
+        "security": "Reliability",
+        "tenure": "Indeterminate",
+        "startDate": datetime.date(2023, 1, 1),
+    },
+    987654: {
+        "employeePeopleSoftID": 987654,
+        "positionNumber": 3203,
+        "firstName": "Nikhil",
+        "lastName": "Khan",
+        "language": "English",
+        "security": "Reliability",
+        "tenure": "Indeterminate",
+        "startDate": datetime.date(2023, 9, 11),
+    },
+    123456: {
+        "employeePeopleSoftID": 123456,
+        "positionNumber": 3204,
+        "firstName": "Jeff",
+        "lastName": "Appleton",
+        "language": "English",
+        "security": "Reliability",
+        "tenure": "Indeterminate",
+        "startDate": None,
+    },
+    234567: {
+        "employeePeopleSoftID": 234567,
+        "positionNumber": 3205,
+        "firstName": "Andrew",
+        "lastName": "Sandou",
+        "language": "English",
+        "security": "Reliability",
+        "tenure": "Indeterminate",
+        "startDate": datetime.date(2024, 4, 1),
+        "enfDate": datetime.date(2025, 3, 31),
+    },
+    545454: {
+        "employeePeopleSoftID": 545454,
+        "positionNumber": 3206,
+        "firstName": "Anna",
+        "lastName": "Klein",
+        "language": "CBC",
+        "security": "Reliability",
+        "tenure": "Indeterminate",
+        "startDate": datetime.date(2024, 4, 1),
+        "enfDate": datetime.date(2025, 3, 31),
+    },
+    323232: {
+        "employeePeopleSoftID": 323232,
+        "positionNumber": 3207,
+        "firstName": "Jeremy",
+        "lastName": "William",
+        "language": "English",
+        "security": "Reliability",
+        "tenure": "Indeterminate",
+        "startDate": datetime.date(2019, 2, 2),
+    },
+    989898: {
+        "employeePeopleSoftID": 989898,
+        "positionNumber": 3208,
+        "firstName": "Yuxiao",
+        "lastName": "Champlain",
+        "language": "English",
+        "security": "Reliability",
+        "tenure": "Indeterminate",
+        "startDate": None,
+    },
+    878888: {
+        "employeePeopleSoftID": 878888,
+        "positionNumber": 3111,
+        "firstName": "Albert",
+        "lastName": "Stanford",
+        "language": "English",
+        "security": "secret",
+        "tenure": "indeterminate",
+        "startDate": datetime.date(2024, 4, 1),
+        "endDate": datetime.date(2025, 3, 31),
+    },
+    432423: {
+        "employeePeopleSoftID": 432423,
+        "positionNumber": 9999,
+        "firstName": "Rimsha",
+        "lastName": "Bisson",
+        "language": "English",
+        "security": "Reliability",
+        "tenure": "student",
+        "startDate": datetime.date(2024, 9, 1),
+        "endDate": datetime.date(2025, 4, 30),
+    },
+    333333: {
+        "employeePeopleSoftID": 333333,
+        "positionNumber": 2111,
+        "firstName": "Erin",
+        "lastName": "Reid",
+        "language": "CBC",
+        "security": "Secret",
+        "tenure": "Indeterminate",
+        "startDate": datetime.date(2024, 11, 15),
+    },
+}
+
+edges = []
 
 # create a graph object
-dot = graphviz.Digraph(comment="The Round Table")
+mdccd = graphviz.Digraph(comment="MDCCD")
 
-# add nodes and edges
-dot.node("A", "King Arthur")  # doctest: +NO_EXE
-dot.node("B", "Sir Bedevere the Wise")
-dot.node("L", "Sir Lancelot the Brave")
+for position in positions:
+    pp(positions[position])
+    box = positions[position]
+    mdccd.node(str(box["positionNumber"]), box["title"])
+    if box["reportsTo"]:
+        edges.append((str(box["positionNumber"]), str(box["reportsTo"])))
 
-dot.edges(["AB", "AL"])
-dot.edge("B", "L", constraint="false")
+mdccd.edges(edges)
 
-# check the source code
-print(dot.source)
-
-# save, render, and view
-dot.render("doctest-output/round-table.gv", view=True)  # doctest: +SKIP
-"doctest-output/round-table.gv.pdf"
-
-
-d = graphviz.Digraph(
-    name="Orthogonal",
-    graph_attr={"label": "TEST", "splines": "ortho"},
-    node_attr={"shape": "box"},
-)
-
-d.edges(["ab", "ac"])
-d.edges(["bd", "be"])
-d.edges(["cf", "cg", "ck"])
-
-d.render("test.gv", view=True)
+mdccd.render("mdccd.gv", view=True)
