@@ -169,7 +169,7 @@ positions = {
     },
     3101: {
         "positionNumber": 3101,
-        "title": "Data Analyst",
+        "title": "Policy Analyst",
         "classification": "EC-04",
         "language": "English",
         "security": "Reliability",
@@ -330,9 +330,10 @@ employees = {
 edges = []
 
 # create a graph object
-mdccd = graphviz.Digraph(
+# rankdir is BT (bottom top) to render with DG at the top
+mdccd = graphviz.Graph(
     name="Orthogonal",
-    graph_attr={"label": "MDCCD", "splines": "ortho"},
+    graph_attr={"rankdir": "BT", "label": "MDCCD", "splines": "ortho"},
     node_attr={"shape": "box"},
 )
 
