@@ -12,3 +12,5 @@ with open("data/raw/data.yaml", "r") as file:
 
 pp(mdccd.positions)
 pp(mdccd.employees)
+
+mdccd.visualize()

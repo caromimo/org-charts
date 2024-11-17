@@ -1,6 +1,6 @@
-# import graphviz
 from datetime import date
 from pprint import pp
+import graphviz
 
 
 class Organization:
@@ -46,3 +46,29 @@ class Organization:
 
             if action["type"] in ["deploymentOUT", "retirement", "resignation"]:
                 del self.employees[action["details"]["employeePeopleSoftID"]]
+
+    def visualize(self):
+
+        edges = []
+
+        # rankdir is BT (bottom top) to render with DG at the top
+        mdccd = graphviz.Graph(
+            name="Orthogonal",
+            graph_attr={
+                "rankdir": "BT",
+                "label": "MDCCD Org Chart",
+                "splines": "ortho",
+            },
+            node_attr={"shape": "box"},
+        )
+
+        for position in self.positions:
+            pp(self.positions[position])
+            box = self.positions[position]
+            mdccd.node(str(box["positionNumber"]), box["title"])
+            if box["reportsTo"]:
+                edges.append((str(box["positionNumber"]), str(box["reportsTo"])))
+
+        mdccd.edges(edges)
+
+        mdccd.render("mdccd.gv", view=True)
