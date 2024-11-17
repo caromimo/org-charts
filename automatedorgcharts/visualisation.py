@@ -330,7 +330,11 @@ employees = {
 edges = []
 
 # create a graph object
-mdccd = graphviz.Digraph(comment="MDCCD")
+mdccd = graphviz.Digraph(
+    name="Orthogonal",
+    graph_attr={"label": "MDCCD", "splines": "ortho"},
+    node_attr={"shape": "box"},
+)
 
 for position in positions:
     pp(positions[position])
