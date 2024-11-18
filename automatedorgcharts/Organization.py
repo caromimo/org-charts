@@ -54,6 +54,7 @@ class Organization:
         # rankdir is BT (bottom top) to render with DG at the top
         mdccd = graphviz.Graph(
             name="Orthogonal",
+            engine="dot",
             graph_attr={
                 "rankdir": "BT",
                 "label": "MDCCD Org Chart",
@@ -78,7 +79,7 @@ class Organization:
                 incumbent_label = "VACANT"
             label = f"""<
             <TABLE BORDER = "1" 
-            BGCOLOR = "lightblue" 
+            BGCOLOR = "lightyellow" 
             CELLBORDER = "0" CELLPADDING = "1">
             <TR>
                 <TD><B>{box["positionNumber"]}</B></TD>
