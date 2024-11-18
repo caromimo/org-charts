@@ -59,7 +59,12 @@ class Organization:
                 "label": "MDCCD Org Chart",
                 "splines": "ortho",
             },
-            node_attr={"shape": "none", "margin": "0"},
+            node_attr={
+                "shape": "none",
+                "margin": "0",
+                "fontname": "arial",
+                "fontsize": "16",
+            },
         )
 
         for position in self.positions:
@@ -76,25 +81,25 @@ class Organization:
             BGCOLOR = "lightblue" 
             CELLBORDER = "0" CELLPADDING = "1">
             <TR>
-                <TD><FONT FACE = "arial"><B>{box["positionNumber"]}</B></FONT></TD>
+                <TD><B>{box["positionNumber"]}</B></TD>
             </TR>
             <TR>
-                <TD><FONT FACE = "arial">{incumbent_label}</FONT></TD>
+                <TD>{incumbent_label}</TD>
             </TR>
             <TR>
-                <TD><FONT FACE = "arial">{box["title"]}</FONT></TD>
+                <TD>{box["title"]}</TD>
             </TR>
             <TR>
-                <TD><FONT FACE = "arial">{box["classification"]}</FONT></TD>
+                <TD>{box["classification"]}</TD>
             </TR>
             <TR>
-                <TD><FONT FACE = "arial">{box["language"]}</FONT></TD>
+                <TD>{box["language"]}</TD>
             </TR>
             <TR>
-                <TD><FONT FACE = "arial">{box["security"]}</FONT></TD>
+                <TD>{box["security"]}</TD>
             </TR>
             <TR>
-                <TD><FONT FACE = "arial">{box["location"]}</FONT></TD>
+                <TD>{box["location"]}</TD>
             </TR>
             </TABLE>
             >"""
