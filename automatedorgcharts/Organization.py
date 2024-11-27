@@ -59,12 +59,18 @@ class Organization:
                 "rankdir": "BT",
                 "label": "MDCCD Org Chart",
                 "splines": "ortho",
+                "ranksep": "1",
+                "nodesep": "1",
+                "outputorder": "edgesfirst",
             },
             node_attr={
                 "shape": "none",
                 "margin": "0",
                 "fontname": "arial",
                 "fontsize": "16",
+            },
+            edge_attr={
+                "color": "black",
             },
         )
 
@@ -79,7 +85,7 @@ class Organization:
                 incumbent_label = "VACANT"
             label = f"""<
             <TABLE BORDER = "1" 
-            BGCOLOR = "lightyellow" 
+            BGCOLOR = "lightblue" 
             CELLBORDER = "0" CELLPADDING = "1">
             <TR>
                 <TD><B>{box["positionNumber"]}</B></TD>
@@ -104,9 +110,14 @@ class Organization:
             </TR>
             </TABLE>
             >"""
-            mdccd.node(str(box["positionNumber"]), label=label)
+            mdccd.node(f"{box["positionNumber"]}", label=label)
             if box["reportsTo"]:
-                edges.append((str(box["positionNumber"]), str(box["reportsTo"])))
+                edges.append(
+                    (
+                        f"{box["positionNumber"]}",
+                        f"{box["reportsTo"]}",
+                    )
+                )
 
         mdccd.edges(edges)
 
