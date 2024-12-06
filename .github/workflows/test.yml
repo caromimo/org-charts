@@ -36,10 +36,14 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
 
-      # List all files in the folder
-      - name: Show all files
-        run: ls
-
       # Install dependencies
       - name: Install dependencies
         run: pdm install
+
+      # Run main script
+      - name: Run main file
+        run: pdm main
+
+      # List all files in the folder
+      - name: Show all files
+        run: ls
