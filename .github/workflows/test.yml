@@ -34,3 +34,7 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+
+      # List all files in the folder
+      - name: Show all files
+        run: ls
