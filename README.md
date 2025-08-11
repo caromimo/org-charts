@@ -1,10 +1,10 @@
 # Automated Org Charts
 
-This project fully automates the data capture and generation of organizational charts.
+This project fully automates the generation of organizational charts.
 
 ## Description
 
-The program processes a YAML file containing a series of actions, such as creating, updating, or deleting positions, as well as staffing actions like hiring, promotions, and departures. It then generates an interactive HTML-based organization chart visualizing the structure.
+The program processes a YAML file containing classification actions, such as creating, updating, or deleting positions, as well as staffing actions like hiring, promotions, and departures. It then generates an interactive HTML-based organization chart visualizing the structure of the organization.
 
 ## Installation
 
