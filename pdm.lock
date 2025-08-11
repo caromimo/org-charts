@@ -5,7 +5,7 @@
 groups = ["default"]
 strategy = ["cross_platform", "inherit_metadata"]
 lock_version = "4.4.1"
-content_hash = "sha256:d7490e1909fea51b509e8fef92e048918762293ff0a09731ba98968330f0e743"
+content_hash = "sha256:33f97e6a28e64f3ffef66956ff0ab674a4fae590068196d68437da6f3183ca9b"
 
 [[package]]
 name = "anytree"
@@ -90,14 +90,16 @@ files = [
 ]
 
 [[package]]
-name = "graphviz"
-version = "0.20.3"
-requires_python = ">=3.8"
-summary = "Simple Python interface for Graphviz"
+name = "gviz-api"
+version = "1.10.0"
+summary = "Python API for Google Visualization"
 groups = ["default"]
+dependencies = [
+    "six",
+]
 files = [
-    {file = "graphviz-0.20.3-py3-none-any.whl", hash = "sha256:81f848f2904515d8cd359cc611faba817598d2feaac4027b266aa3eda7b3dde5"},
-    {file = "graphviz-0.20.3.zip", hash = "sha256:09d6bc81e6a9fa392e7ba52135a9d49f1ed62526f96499325930e87ca1b5925d"},
+    {file = "gviz_api-1.10.0-py2.py3-none-any.whl", hash = "sha256:a05055fed8c279f34f4b496eace7648c7fe9c1b06851e8a36e748541f1adbb05"},
+    {file = "gviz_api-1.10.0.tar.gz", hash = "sha256:846692dd8cc73224fc31b18e41589bd934e1cc05090c6576af4b4b26c2e71b90"},
 ]
 
 [[package]]

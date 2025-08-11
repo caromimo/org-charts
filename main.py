@@ -1,7 +1,7 @@
-# import csv
 import yaml
 from pprint import pp
 from automatedorgcharts import Organization
+from automatedorgcharts.visualisation import visualize_org_chart
 
 mdccd = Organization()
 
@@ -13,4 +13,4 @@ with open("data/raw/data.yaml", "r") as file:
 pp(mdccd.positions)
 pp(mdccd.employees)
 
-mdccd.visualize()
+visualize_org_chart(mdccd)

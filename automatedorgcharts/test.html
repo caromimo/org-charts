@@ -1,0 +1,51 @@
+<html>
+
+<head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+        // Load the Visualization API and the 'orgchart' package.
+        google.charts.load('current', { packages: ['orgchart'] });
+
+        // Set a callback to run when the Google Visualization API is loaded.
+        google.charts.setOnLoadCallback(drawChart);
+
+        // Callback that creates and populates a data table,
+        // instantiates the org chart, passes in the data and
+        // draws it.
+        function drawChart() {
+
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Name');
+            data.addColumn('string', 'Manager');
+            data.addColumn('string', 'ToolTip');
+
+            // For each row, the first item is the unique id of the employee,
+            // the second is the id of the manager, and the third is a tooltip.
+            // The manager's value can be '' or null for the top-level node.
+            data.addRows([
+                [{ v: 'CEO', f: 'CEO<div style="color:red; font-style:italic">Executive</div>' }, '', 'The CEO'],
+                [{ v: 'VP_Engineering', f: 'VP Engineering' }, 'CEO', 'Leads all of engineering'],
+                ['VP_Marketing', 'CEO', 'Leads all of marketing'],
+                ['VP_Sales', 'CEO', 'Leads all of sales'],
+                ['Lead_Engineer', 'VP_Engineering', 'Manages the core engineering team'],
+                ['Marketing_Manager', 'VP_Marketing', 'Manages social media and campaigns'],
+                ['Sales_Rep_1', 'VP_Sales', 'West Coast Sales'],
+                ['Sales_Rep_2', 'VP_Sales', 'East Coast Sales']
+            ]);
+
+            // Create the chart.
+            var chart = new google.visualization.OrgChart(document.getElementById('chart_div'));
+            // Draw the chart, setting the allowHtml option to true.
+            chart.draw(data, { allowHtml: true });
+        }
+    </script>
+</head>
+
+<body>
+    <!--Div that will hold the org chart-->
+    <div id="chart_div"></div>
+</body>
+
+</html>

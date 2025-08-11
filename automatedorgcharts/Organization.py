@@ -1,7 +1,5 @@
 from datetime import date
 from pprint import pp
-import graphviz
-
 
 class Organization:
     def __init__(self):
@@ -46,79 +44,3 @@ class Organization:
 
             if action["type"] in ["deploymentOUT", "retirement", "resignation"]:
                 del self.employees[action["details"]["employeePeopleSoftID"]]
-
-    def visualize(self):
-
-        edges = []
-
-        # rankdir is BT (bottom top) to render with DG at the top
-        mdccd = graphviz.Graph(
-            name="Orthogonal",
-            engine="dot",
-            graph_attr={
-                "rankdir": "BT",
-                "label": "MDCCD Org Chart",
-                "splines": "ortho",
-                "ranksep": "1",
-                "nodesep": "1",
-                "outputorder": "edgesfirst",
-            },
-            node_attr={
-                "shape": "none",
-                "margin": "0",
-                "fontname": "arial",
-                "fontsize": "16",
-            },
-            edge_attr={
-                "color": "black",
-            },
-        )
-
-        for position in self.positions:
-            pp(self.positions[position])
-            box = self.positions[position]
-            incumbent_label = ""
-            if box.get("incumbent", False):
-                person = self.employees[box["incumbent"]]
-                incumbent_label = f"{person["firstName"]} {person["lastName"]}"
-            else:
-                incumbent_label = "VACANT"
-            label = f"""<
-            <TABLE BORDER = "1" 
-            BGCOLOR = "lightblue" 
-            CELLBORDER = "0" CELLPADDING = "1">
-            <TR>
-                <TD><B>{box["positionNumber"]}</B></TD>
-            </TR>
-            <TR>
-                <TD>{incumbent_label}</TD>
-            </TR>
-            <TR>
-                <TD>{box["title"]}</TD>
-            </TR>
-            <TR>
-                <TD>{box["classification"]}</TD>
-            </TR>
-            <TR>
-                <TD>{box["language"]}</TD>
-            </TR>
-            <TR>
-                <TD>{box["security"]}</TD>
-            </TR>
-            <TR>
-                <TD>{box["location"]}</TD>
-            </TR>
-            </TABLE>
-            >"""
-            mdccd.node(f"{box["positionNumber"]}", label=label)
-            if box["reportsTo"]:
-                edges.append(
-                    (
-                        f"{box["positionNumber"]}",
-                        f"{box["reportsTo"]}",
-                    )
-                )
-
-        mdccd.edges(edges)
-
-        mdccd.render("mdccd.gv", view=True)
